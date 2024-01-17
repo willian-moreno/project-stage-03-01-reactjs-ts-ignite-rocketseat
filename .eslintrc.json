@@ -1,6 +1,12 @@
 {
   "extends": "@rocketseat/eslint-config/react",
   "rules": {
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 100
+      }
+    ]
   }
 }
