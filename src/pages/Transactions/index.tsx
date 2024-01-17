@@ -23,9 +23,7 @@ export function Transactions() {
                 <tr key={transaction.id}>
                   <td width="50%">{transaction.description}</td>
                   <td>
-                    <PriceHighlight $variant={transaction.type}>
-                      R$ {transaction.price}
-                    </PriceHighlight>
+                    <PriceHighlight $variant={transaction.type}>{transaction.price}</PriceHighlight>
                   </td>
                   <td>{transaction.category}</td>
                   <td>{new Date(transaction.createdAt).toLocaleDateString()}</td>
