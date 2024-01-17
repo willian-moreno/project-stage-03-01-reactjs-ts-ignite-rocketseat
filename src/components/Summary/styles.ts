@@ -8,7 +8,7 @@ export const SummaryContainer = styled.section`
   width: 100%;
   max-width: 1120px;
 
-  margin: -5rem auto;
+  margin: -5rem auto 0;
   padding: 0 1.5rem;
 
   overflow-x: auto;
