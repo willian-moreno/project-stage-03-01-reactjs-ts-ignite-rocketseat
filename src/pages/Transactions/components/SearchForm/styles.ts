@@ -4,13 +4,14 @@ export const SearchFormContainer = styled.form`
   display: flex;
   gap: 1rem;
 
+  margin-bottom: 1.5rem;
+
   input {
     flex: 1;
 
     background-color: ${(props) => props.theme['gray-900']};
     color: ${(props) => props.theme['gray-300']};
 
-    margin-bottom: 1.5rem;
     padding: 1rem;
 
     border: 0;
@@ -49,6 +50,11 @@ export const SearchFormContainer = styled.form`
       background-color: ${(props) => props.theme['green-500']};
       border-color: ${(props) => props.theme['green-500']};
       color: ${(props) => props.theme.white};
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
     }
   }
 `
