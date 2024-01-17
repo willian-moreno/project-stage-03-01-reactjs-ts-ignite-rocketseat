@@ -14,7 +14,7 @@ export const SummaryContainer = styled.section`
   overflow-x: auto;
 `
 interface SummaryCardProps {
-  variant?: 'green'
+  $variant?: 'green'
 }
 
 export const SummaryCard = styled.div<SummaryCardProps>`
@@ -41,7 +41,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
   }
 
   ${(props) =>
-    props.variant === 'green' &&
+    props.$variant === 'green' &&
     css`
       background-color: ${props.theme['green-700']};
     `}
