@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { TransactionsContext } from '../contexts/TransactionsProvider'
+import { priceFormatter } from '../utils/formatter'
 
 export function useSummary() {
   const { transactions } = useContext(TransactionsContext)
@@ -23,5 +24,10 @@ export function useSummary() {
     },
   )
 
-  return summary
+  return {
+    ...summary,
+    formattedIncome: priceFormatter.format(summary.income),
+    formattedOutcome: priceFormatter.format(summary.outcome),
+    formattedTotal: priceFormatter.format(summary.total),
+  }
 }
