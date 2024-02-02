@@ -15,6 +15,38 @@
       "category": "Alimentação",
       "price": 49.99,
       "createdAt": "2024-01-10T16:10:22.267Z"
+    },
+    {
+      "description": "Rocketseat One",
+      "price": 1899,
+      "category": "Educação",
+      "type": "outcome",
+      "createdAt": "2024-02-02T15:52:24.698Z",
+      "id": 3
+    },
+    {
+      "description": "Teste",
+      "price": 45,
+      "category": "Teste",
+      "type": "income",
+      "createdAt": "2024-02-02T19:06:04.239Z",
+      "id": 4
+    },
+    {
+      "description": "Curso React.js",
+      "price": 596,
+      "category": "Educação",
+      "type": "outcome",
+      "createdAt": "2024-02-02T19:35:59.406Z",
+      "id": 5
+    },
+    {
+      "description": "Curso React.js 2",
+      "price": 599.56,
+      "category": "Educação",
+      "type": "outcome",
+      "createdAt": "2024-02-02T19:40:23.571Z",
+      "id": 6
     }
   ]
 }
