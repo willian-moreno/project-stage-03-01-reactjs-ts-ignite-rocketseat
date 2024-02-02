@@ -71,7 +71,7 @@ export const Content = styled(Dialog.Content)`
         background-color 0.15s,
         color 0.15s;
 
-      &:hover {
+      &:not(:disabled):hover {
         background-color: ${(props) => props.theme['green-700']};
       }
 
@@ -151,7 +151,7 @@ export const TransactionTypeItem = styled(RadioGroup.Item)<TransactionTypeItemPr
     }
   }
 
-  &[data-state='unchecked']:hover {
+  &[data-state='unchecked']:not(:disabled):hover {
     background-color: ${(props) => props.theme['gray-600']};
   }
 `
