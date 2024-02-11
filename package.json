@@ -1,12 +1,12 @@
 {
-  "name": "project-stage-03-01-reactjs-ts-ignite-rocketseat",
+  "name": "dt-money",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "dev:server": "json-server server.json --host localhost --port 3333 --delay 500 --watch",
-    "build": "tsc && vite build",
+        "build": "tsc && vite build",
     "lint": "eslint src --ext .ts,.tsx --fix --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
