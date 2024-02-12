@@ -1,5 +1,6 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import { api } from '../plugins/axios'
+import { createContext } from 'use-context-selector'
 
 interface Transaction {
   id: number
@@ -36,42 +37,48 @@ interface TransactionsProviderProps {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
-  useEffect(() => {
-    fetchTransactions()
-  }, [])
-
-  async function fetchTransactions(params: FetchTransactionsType = {}) {
+  const fetchTransactions = useCallback(async (params: FetchTransactionsType = {}) => {
     const { query } = {
       query: null,
       ...params,
     }
 
-    const request = await api.get<Transaction[]>('transactions', {
-      params: {
-        q: query,
-        _sort: 'createdAt',
-        _order: 'desc',
-      },
-    })
+    try {
+      const request = await api.get<Transaction[]>('transactions', {
+        params: {
+          q: query,
+          _sort: 'createdAt',
+          _order: 'desc',
+        },
+      })
 
-    const response = await request.data
+      setTransactions(request.data)
+    } catch (error) {
+      console.log('Ocorreu um erro ao tentar buscar as transações.')
+    }
+  }, [])
 
-    setTransactions(() => response)
-  }
+  useEffect(() => {
+    fetchTransactions()
+  }, [fetchTransactions])
 
-  async function createTransaction(data: CreateTransaction) {
+  const createTransaction = useCallback(async (data: CreateTransaction) => {
     const { description, price, category, type } = data
 
-    const response = await api.post<Transaction>('transactions', {
-      description,
-      price,
-      category,
-      type,
-      createdAt: new Date(),
-    })
+    try {
+      const response = await api.post<Transaction>('transactions', {
+        description,
+        price,
+        category,
+        type,
+        createdAt: new Date(),
+      })
 
-    setTransactions((state) => [response.data, ...state])
-  }
+      setTransactions((state) => [response.data, ...state])
+    } catch (error) {
+      console.log('Ocorreu um erro ao tentar criar uma nova transação.')
+    }
+  }, [])
 
   return (
     <TransactionsContext.Provider
