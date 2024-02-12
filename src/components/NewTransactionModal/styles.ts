@@ -21,10 +21,14 @@ export const Content = styled(Dialog.Content)`
 
   background-color: ${(props) => props.theme['gray-800']};
 
-  min-width: 32rem;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 32rem;
   padding: 2.5rem 3rem;
 
   border-radius: 6px;
+
+  overflow: auto;
 
   form {
     display: flex;
@@ -81,6 +85,24 @@ export const Content = styled(Dialog.Content)`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    & {
+      top: initial;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: none;
+
+      height: fit-content;
+      padding: 1.5rem;
+
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
 `
 
 export const CloseButton = styled(Dialog.Close)`
@@ -103,6 +125,12 @@ export const TransactionTypeGroup = styled(RadioGroup.Root)`
   grid-template-columns: repeat(2, 1fr);
 
   gap: 1rem;
+
+  @media (max-width: 425px) {
+    & {
+      gap: 0.5rem;
+    }
+  }
 `
 
 interface TransactionTypeItemProps {
